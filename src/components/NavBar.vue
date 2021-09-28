@@ -1,6 +1,6 @@
 <template>
-  <nav class="bg-transparent hover:bg-gray-200 hover:backdrop-blur transition duration-500">
-    <div class="mx-auto border border-gray-200 hover:border-gray-200 transition duration-500">
+  <nav class="bg-transparent hover:bg-gray-100 hover:backdrop-blur transition duration-500">
+    <div class="mx-auto border border-gray-200 hover:border-gray-100 transition duration-500">
       <div class="p-2 px-8 flex justify-between">
         <!-- logo -->
         <div class="mr-4 flex">
