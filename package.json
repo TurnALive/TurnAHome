@@ -1,0 +1,23 @@
+{
+  "name": "turnahome",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.0",
+    "autoprefixer": "^10.3.6",
+    "postcss": "^8.3.8",
+    "tailwindcss": "^2.2.16",
+    "typescript": "^4.4.3",
+    "vite": "^2.5.10",
+    "vue-tsc": "^0.3.0"
+  }
+}
