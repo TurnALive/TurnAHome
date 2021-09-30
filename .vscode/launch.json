@@ -1,0 +1,18 @@
+{
+    "configurations": [
+    {
+        "name": "Run Script: dev",
+        "request": "launch",
+        "runtimeArgs": [
+            "run-script",
+            "dev"
+        ],
+        "runtimeExecutable": "npm",
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "pwa-node",
+        "port": 3000
+    }
+    ],
+  }
