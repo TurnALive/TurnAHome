@@ -12,7 +12,7 @@ import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectio
 export default class Create3D  {
 
     composer: EffectComposer
-    effectFXAA: Pass
+    effectFXAA: ShaderPass
     scene: THREE.Scene
     renderer: THREE.WebGLRenderer
     camera: THREE.PerspectiveCamera
