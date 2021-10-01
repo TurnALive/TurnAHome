@@ -1,6 +1,7 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { EffectComposer, Pass } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import CameraControls from "camera-controls";
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
@@ -16,9 +17,9 @@ export default class Create3D  {
     scene: THREE.Scene
     renderer: THREE.WebGLRenderer
     camera: THREE.PerspectiveCamera
-    control: OrbitControls
+    control: CameraControls
 
-    constructor(scene: THREE.Scene,renderer: THREE.WebGLRenderer,camera: THREE.PerspectiveCamera,control:OrbitControls) {
+    constructor(scene: THREE.Scene,renderer: THREE.WebGLRenderer,camera: THREE.PerspectiveCamera,control:CameraControls) {
         this.scene = scene;
         this.renderer = renderer
         this.camera = camera;
@@ -29,10 +30,16 @@ export default class Create3D  {
 
 
     setControl() {
-        this.control.minDistance = 0;
-        this.control.maxDistance = 200;
-        this.control.enableDamping = true;
-    }
+        this.control.minDistance = 2.844;
+        this.control.maxDistance = 2.844;
+        this.control.maxAzimuthAngle = 0.340;
+        this.control.maxPolarAngle = 1.450;
+        this.control.minAzimuthAngle = -0.153;
+        this.control.minPolarAngle = 1.315;
+        this.control.dollyTo(2.844);
+        this.control.rotateTo(0.206, 1.385);
+        this.control.moveTo(0,0.9,0)
+    }   
 
     generateMaterial(lightPosition: THREE.Vector3, lightColor: String, lightIntensity: String, translucencyColor: String) {
         
@@ -170,28 +177,22 @@ export default class Create3D  {
         this.composer.addPass(gammaCorrection);
     }
     
-    onWindowResize() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+    setSize(width: number, height:number) {
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
 
-        this.renderer.setSize(width, height);
+        this.renderer.setSize(width, height,false);
         this.composer.setSize(width, height);
 
         this.effectFXAA.uniforms.resolution.value.set(1 / width, 1 / height);
     }
+    onWindowResize() {
+        const canvas = this.renderer.domElement;
+        const width = this.renderer.domElement.clientWidth;
+        const height = this.renderer.domElement.clientHeight;
+        const needResize = canvas.width !== width || canvas.height !== height;
 
-    responsiveResize(size:number[]){
-
-        this.camera.aspect = size[0] / size[1];
-        this.camera.updateProjectionMatrix();
-
-        this.renderer.setSize(size[0], size[1]);
-        this.composer.setSize(size[0], size[1]);
-
-        // this.effectFXAA.uniforms.resolution.value.set(1 / size[0], 1 / size[1]);
+        if(needResize)this.setSize(width, height); 
     }
-
 }
