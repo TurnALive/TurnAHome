@@ -3,22 +3,19 @@
     <!-- content -->
     <div class="flex flex-1 flex-col item-center md:items-start">
       <h2 class="text-gray-700 text-center md:text-left text-4xl xl:text-8xl">
-        Greetings from
+        {{ $t("i18n.greeting") }}
         <div class="typing relative h-10 xl:h-24 overflow-hidden xl:mt-2.5">
           <span data-show>∀Live</span>
           <span>∀Rchive</span>
           <span>∀Community</span>
         </div>
       </h2>
-      <h3 class="text-gray-600 mt-9 md:mt-11 text-2xl xl:text-6xl text-center md:text-left md:pl-2 animate__animated animate__fadeIn">
-        Craft <br />
-        Your Universe
-      </h3>
+      <h3 class="text-gray-600 mt-9 md:mt-11 text-2xl xl:text-6xl text-center md:text-left md:pl-2 animate__animated animate__fadeIn" v-html="$t('i18n.subtitle')"></h3>
     </div>
     <!-- 3D model -->
     <div class="flex justify-center flex-1">
       <canvas id="three" class="hidden md:block md:w-full md:h-full"></canvas>
-      <img src="src/assets/img/turna-hero-right-transparent-mobile.webp" class="md:hidden w-2/3 h-2/3" />
+      <img src="src/assets/img/turna-hero-right-transparent.webp" class="w-2/3 h-2/3 md:w-3/4 md:h-3/4" />
     </div>
   </div>
   <!-- continue arrow -->
@@ -34,7 +31,7 @@ import { defineComponent } from "vue";
 import * as THREE from "three";
 import CameraControls from "camera-controls";
 
-import Create3D from "../ts/3dhandler";
+import Create3D from "../ts/utils/3dhandler";
 
 export default defineComponent({
   setup() {},
@@ -45,7 +42,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    this.initThree();
+    // this.initThree();
     setInterval(function () {
       const show = document.querySelector("span[data-show]");
       const next = show?.nextElementSibling || document.querySelector(".typing span:first-child");

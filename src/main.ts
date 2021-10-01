@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+import i18n from './ts/i18n/i18n'
+
+
 import './css/index.css'
 import 'animate.css'
 
@@ -22,8 +25,8 @@ import 'animate.css'
 //     routes,
 // })
 
-// const app = createApp({})
-// app.use(router)
-// app.mount('#app')
+const app = createApp(App)
+app.use(i18n)
+app.mount('#app')
 
-createApp(App).mount('#app')
+// createApp(App).mount('#app')

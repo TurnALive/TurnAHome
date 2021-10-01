@@ -1,6 +1,6 @@
 <template>
-  <nav class="bg-transparent hover:bg-gray-100 hover:backdrop-blur transition duration-500">
-    <div class="mx-auto border border-gray-200 hover:border-gray-100 transition duration-500">
+  <nav class="bg-transparent hover:bg-gray-200 hover:backdrop-blur transition duration-500">
+    <div class="mx-auto border border-transparent hover:border-gray-200 hover:shadow-lg transition duration-500">
       <div class="p-2 px-8 flex justify-between">
         <!-- logo -->
         <div class="mr-4 flex">
@@ -15,15 +15,22 @@
         </div>
         <!-- parts -->
         <div class="hidden md:flex items-center space-x-1">
-          <a href="/#/Social" class="px-5 text-gray-700 hover:text-turna-500 rounded transition duration-400">社群</a>
-          <a href="/#/Alive" class="px-5 pr-8 text-gray-700 hover:text-turna-500 rounded transition duration-400">游戏</a>
-          <a href="/#/Archive" class="py-3 px-4 text-gray-200 bg-turna-700 hover:bg-turna-600 hover:text-gray-200 rounded transition duration-400">档案局</a>
+          <button @click="toggleLanguage">
+            <svg class="w-6 h-6 text-gray-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+              </svg>
+            </svg>
+          </button>
+          <a href="/#/Social" class="px-5 text-gray-700 hover:text-turna-500 rounded transition duration-400">{{ $t("i18n.community") }}</a>
+          <a href="/#/Alive" class="px-5 pr-8 text-gray-700 hover:text-turna-500 rounded transition duration-400">{{ $t("i18n.alive") }}</a>
+          <a href="/#/Archive" class="py-3 px-4 text-gray-200 bg-turna-700 hover:bg-turna-600 hover:text-gray-200 rounded transition duration-400">{{ $t("i18n.archive") }}</a>
         </div>
         <!-- mobile menu button -->
         <div class="md:hidden flex items-center pr-5">
           <button @click="toggleMobileMenu" class="mobile-menu-button md:hidden">
             <transition name="mobileMenu" class="animate__animated animate__faster" enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut" :duration="{ enter: 500, leave: 300 }" mode="out-in">
-              <svg v-if="!isActive" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg v-if="!isMobileMenuActive" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
               </svg>
               <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +42,7 @@
       </div>
       <!-- mobile menu -->
       <transition name="mobileMenu" class="animate__animated animate__faster" enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut" :duration="{ enter: 500, leave: 300 }">
-        <div v-if="isActive" class="mobile-menu md:hidden absolute bg-gray-100 backdrop-blur container w-full max-w-screen-md">
+        <div v-if="isMobileMenuActive" class="mobile-menu md:hidden absolute bg-gray-100 backdrop-blur container w-full max-w-screen-md">
           <a href="/#/Social" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-700 hover:text-turna-500">社群</a>
           <a href="/#/Alive" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-700 hover:text-turna-500">游戏</a>
           <a href="/#/Archive" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-200 bg-turna-700 hover:bg-turna-600 hover:text-gray-200 rounded-2xl transition duration-300">档案局</a>
@@ -47,16 +54,21 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+// import i18n from "../ts/i18n/i18n";
 
 export default defineComponent({
   data() {
     return {
-      isActive: false,
+      isMobileMenuActive: false,
     };
   },
   methods: {
     toggleMobileMenu() {
-      this.isActive = !this.isActive;
+      this.isMobileMenuActive = !this.isMobileMenuActive;
+    },
+    toggleLanguage() {
+      if (this.$i18n.locale === "zh") this.$i18n.locale = "en";
+      else this.$i18n.locale = "zh";
     },
   },
 });
