@@ -2,12 +2,12 @@
   <div class="container flex flex-col-reverse md:flex-row items-center gap:6 md:gap-12 mx-auto mt-14 md:mt-28">
     <!-- content -->
     <div class="flex flex-1 flex-col item-center md:items-start">
-      <h2 class="text-gray-700 text-center md:text-left text-4xl xl:text-8xl">
+      <h2 class="text-gray-700 text-center md:text-left text-4xl xl:text-8xl mt-10 md:mt-0">
         {{ $t("i18n.greeting") }}
         <div class="typing relative h-10 xl:h-24 overflow-hidden xl:mt-2.5">
-          <span data-show>∀Live</span>
-          <span>∀Rchive</span>
-          <span>∀Community</span>
+          <span data-show class="ml-20 md:ml-0">∀Live</span>
+          <span class="ml-14 md:ml-0">∀Rchive</span>
+          <span class="ml-2 md:ml-0">∀Community</span>
         </div>
       </h2>
       <h3 class="text-gray-600 mt-9 md:mt-11 text-2xl xl:text-6xl text-center md:text-left md:pl-2 animate__animated animate__fadeIn" v-html="$t('i18n.subtitle')"></h3>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 w-screen h-screen">
+  <div class="w-screen h-screen" style="background: linear-gradient(to right, #c2e59c, #64b3f4)">
     <NavBar />
     <Home />
   </div>
