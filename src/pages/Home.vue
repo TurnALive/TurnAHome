@@ -1,5 +1,6 @@
 <template>
   <Hero />
+  <More />
   <Social />
   <Alive />
   <Archive />
@@ -12,11 +13,13 @@ import Hero from "./Hero.vue";
 import Social from "./Social.vue";
 import Alive from "./Alive.vue";
 import Archive from "./Archive.vue";
+import More from "./More.vue";
 
 export default defineComponent({
   setup() {},
   components: {
     Hero,
+    More,
     Social,
     Alive,
     Archive,
