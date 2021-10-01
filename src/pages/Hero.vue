@@ -53,7 +53,6 @@ export default defineComponent({
     this.initThree();
   },
   methods: {
-    afterEnter() {},
     initThree() {
       CameraControls.install({ THREE: THREE });
 
@@ -74,6 +73,15 @@ export default defineComponent({
       TurnA.setSize(900, 700);
 
       window.addEventListener("resize", TurnA.onWindowResize);
+      canvas.addEventListener("mouseout", () => control.rotateTo(0.206, 1.385, true));
+      canvas.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        let percentageX = (e.clientX - rect.left) / canvas.clientWidth;
+        let percentageY = (e.clientY - rect.top) / canvas.clientHeight;
+        const azimuthAngle = control.maxAzimuthAngle - percentageX * (control.maxAzimuthAngle - control.minAzimuthAngle);
+        const polarAngle = control.maxPolarAngle - percentageY * (control.maxPolarAngle - control.minPolarAngle);
+        control.rotateTo(azimuthAngle, polarAngle, true);
+      });
 
       function animate() {
         control.update(clock.getDelta());
