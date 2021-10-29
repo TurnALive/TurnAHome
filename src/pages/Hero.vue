@@ -14,7 +14,7 @@
     </div>
     <!-- 3D model -->
     <div class="flex justify-center flex-1">
-      <canvas id="three" class="hidden md:block md:w-full md:h-full"></canvas>
+      <!-- <canvas id="three" class="hidden md:block md:w-full md:h-full"></canvas> -->
       <img src="src/assets/img/turna-hero-right-transparent.webp" class="w-2/3 h-2/3 md:w-3/4 md:h-3/4" />
     </div>
   </div>
