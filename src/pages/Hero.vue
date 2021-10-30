@@ -19,10 +19,16 @@
     </div>
   </div>
   <!-- continue arrow -->
-  <transition name="continue" class="animate__animated animate__faster" enter-active-class="animate__fadeInUp" :duration="1000">
-    <svg class="w-6 h-6 mt-8 text-gray-500 container mx-auto animate__animated animate__fadeInUp" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
+  <transition name="continue" class="animate__animated" enter-active-class="animate__fadeInUp" :duration="1000">
+    <div class="container mx-auto flex h-20 py-6 lg:py-3 text-gray-500 animate__fadeInUp">
+      <button class="mx-auto">
+        <a href="/#/More">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
+      </button>
+    </div>
   </transition>
 </template>
 
