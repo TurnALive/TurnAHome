@@ -1,10 +1,10 @@
 <template>
   <div class="container flex flex-col-reverse md:flex-row items-center gap:6 md:gap-12 mx-auto mt-14 md:mt-28">
     <!-- content -->
-    <div class="flex flex-1 flex-col item-center md:items-start">
-      <h2 class="text-gray-700 text-center md:text-left text-4xl xl:text-8xl mt-10 md:mt-0">
+    <div class="flex flex-1 flex-col item-center md:items-start md:ml-10 2xl:ml-0">
+      <h2 class="text-gray-700 text-center md:text-left text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl mt-10 md:mt-0 whitespace-nowrap">
         {{ $t("i18n.greeting") }}
-        <div class="typing relative h-10 xl:h-24 overflow-hidden xl:mt-2.5">
+        <div class="typing relative overflow-hidden mt-4 h-10 lg:h-16 xl:h-24 2xl:h-28">
           <span data-show class="ml-20 md:ml-0">∀Live</span>
           <span class="ml-14 md:ml-0">∀Rchive</span>
           <span class="ml-2 md:ml-0">∀Community</span>
@@ -104,7 +104,7 @@ export default defineComponent({
 
 <style scoped>
 .typing span {
-  @apply block absolute bg-no-repeat top-10 md:top-10 xl:top-24 bg-clip-border xl:pb-2.5 text-center md:text-left;
+  @apply block absolute bg-no-repeat top-10 lg:top-16 xl:top-24 2xl:top-28 bg-clip-border pb-1.5 lg:pb-5 xl:pb-8 2xl:pb-4 text-center md:text-left;
   background-size: 100% 100%;
   -webkit-background-clip: text;
   background-clip: text;
