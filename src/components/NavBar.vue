@@ -42,7 +42,7 @@
       </div>
       <!-- mobile menu -->
       <transition name="mobileMenu" class="animate__animated animate__faster" enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut" :duration="{ enter: 500, leave: 300 }">
-        <div v-if="isMobileMenuActive" class="mobile-menu md:hidden absolute bg-gray-100 backdrop-blur container w-full max-w-screen-md">
+        <div v-if="isMobileMenuActive" class="mobile-menu md:hidden absolute bg-gray-200 backdrop-blur container w-full max-w-screen-md">
           <a href="/#/Social" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-700 hover:text-turna-500">社群</a>
           <a href="/#/Alive" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-700 hover:text-turna-500">游戏</a>
           <a href="/#/Archive" @click="toggleMobileMenu" class="block py-4 text-center text-sm text-gray-200 bg-turna-700 hover:bg-turna-600 hover:text-gray-200 rounded-2xl transition duration-300">档案局</a>
